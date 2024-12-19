@@ -19,10 +19,6 @@ jobs:
       - name: Check out the repository
         uses: actions/checkout@v4.2.2
 
-      - name: Get changed files
-        id: changed_files
-        uses: jitterbit/get-changed-files@v1
-
   build:
     needs: init
     runs-on: ubuntu-latest
