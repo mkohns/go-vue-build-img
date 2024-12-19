@@ -33,13 +33,13 @@ jobs:
       - name: Build and push Docker image for multiple platforms
         run: |
           platforms="linux/amd64,linux/arm/v7,linux/arm64"
-          repo_name="ghcr.io/${{ github.repository_owner }}/go-vue-build-img"
+          repo_name="ghcr.io/${{ github.repository_owner }}"
           tag="1.23.4"
 
           docker buildx build \
             --platform $platforms \
             --file Dockerfile \
-            --tag $repo_name-amd64:$tag \
-            --tag $repo_name-armv7:$tag \
-            --tag $repo_name-aarch64:$tag \
+            --tag repo_name/amd64-govuebuilder:$tag \
+            --tag repo_name/armv7-govuebuilder:$tag \
+            --tag repo_name/aarch64-govuebuilder:$tag \
             --push .
